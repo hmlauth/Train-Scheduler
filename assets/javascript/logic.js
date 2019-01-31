@@ -36,6 +36,11 @@ function clearInput() {
     $("#frequency-input").val("");
 }
 
+// Timer to refresh page to show updated train times
+setTimeout(function () {
+    location.reload();
+}, 30000); // 3000 milliseconds means 3 seconds.
+
 // METHODS
 // ==============================================================
 // At load of page and subsequent value changes, display snapshot of value stored in firebase.
@@ -52,19 +57,19 @@ database.ref().on("child_added", function (snapshot) {
     firstTrainTime = snapshot.val().firstTrainTime;
     frequency = snapshot.val().frequency;
 
-        // take firstTrainTime in format HH:mm and subtract 1 year to ensure the time comes before the current time.  
-        var firstTimeConverted = moment(firstTrainTime, "HH:mm").subtract(1, "years");
-        console.log(firstTimeConverted);
-        // find difference between current time and firstTimeConverted
-        var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-        console.log(diffTime);
-        // Once we have the difference we need to see how many trains have come and gone and what is left over to then use that number to predict the next arrival. For example, if a train comes every 5 minutes starting at 10:00 and it's 10:11, then we know two trains have come with 1 minute remainder. Knowing the remainer will then give us a point of reference to know in how many minutes the next train will come through simple subtraction of the frequency minus the remainder.
-        var tRemainder = diffTime % frequency;
-        console.log(tRemainder);
-        var minutesTillTrain = frequency - tRemainder;
-        console.log(minutesTillTrain);
-        var nextTrain = moment(moment().add(minutesTillTrain, "minutes")).format("hh:mm");
-        console.log(nextTrain);
+    // take firstTrainTime in format HH:mm and subtract 1 year to ensure the time comes before the current time.  
+    var firstTimeConverted = moment(firstTrainTime, "HH:mm").subtract(1, "years");
+    console.log(firstTimeConverted);
+    // find difference between current time and firstTimeConverted
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    console.log(diffTime);
+    // Once we have the difference we need to see how many trains have come and gone and what is left over to then use that number to predict the next arrival. For example, if a train comes every 5 minutes starting at 10:00 and it's 10:11, then we know two trains have come with 1 minute remainder. Knowing the remainer will then give us a point of reference to know in how many minutes the next train will come through simple subtraction of the frequency minus the remainder.
+    var tRemainder = diffTime % frequency;
+    console.log(tRemainder);
+    var minutesTillTrain = frequency - tRemainder;
+    console.log(minutesTillTrain);
+    var nextTrain = moment(moment().add(minutesTillTrain, "minutes")).format("hh:mm");
+    console.log(nextTrain);
 
     // Create new table elements
     tRow = $("<tr>");
