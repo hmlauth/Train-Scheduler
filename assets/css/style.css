@@ -25,21 +25,21 @@ input {
 
 #add-gif-button {
     margin-top: 5px;
-    background-color: black;
-    color: rgba(146, 92, 255, 0.728);
+    background-color: rgba(0, 0, 0);
+    color: rgba(146, 92, 255, 0.685);
 }
 
 #gif-topic-input {
     text-align: center;
     padding: 5px;
-    background-color: rgba(146, 92, 255, 0.427);
+    background-color: rgba(146, 92, 255, 0.338);
 
 }
 
 h5 {
     font-family: 'Permanent Marker', cursive;
     font-size: 40px;
-    color: rgb(97, 29, 29);
+    color: rgb(255, 77, 0);
 }
 
 .app-container {
