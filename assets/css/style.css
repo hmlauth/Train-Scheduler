@@ -44,7 +44,7 @@ h5 {
 
 .app-container {
     padding: 20px;
-    background-color: brown;
+    background-color: rgb(165, 42, 71);
     box-shadow: 10px 5px 100px black
 }
 
@@ -54,6 +54,18 @@ h5 {
 }
 
 .gif {
-    margin: 10px;
+    margin: 10px 20px 0px 10px;
     box-shadow: 10px 5px 100px white;
+    height: 230px;
 }
+
+.gif-display {
+    justify-content: center;
+}
+
+h6 {
+    color: rgb(165, 42, 71);
+    font-size: 20px;
+    margin: 10px;
+}
+
