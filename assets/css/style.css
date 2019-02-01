@@ -1,7 +1,54 @@
+body {
+    background-image: url("https://images.pexels.com/photos/163856/sunset-train-road-163856.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    background-size: cover;
+}
+.jumbotron {
+    margin-top: 30px;
+    background-color: rgba(0, 0, 0, 0.187);
+    color: rgb(97, 29, 29);
+}
+
 input {
     font-style: italic;
 }
 
 .form-control {
     font-size: 12px;
+}
+
+.gif-container {
+    text-align: center;
+    margin-top: 30px;
+    background-color: rgba(0, 0, 0, 0.187);
+    padding: 20px;
+}
+
+#add-gif-button {
+    margin-top: 5px;
+    background-color: black;
+    color: rgba(146, 92, 255, 0.728);
+}
+
+#gif-topic-input {
+    text-align: center;
+    padding: 5px;
+    background-color: rgba(146, 92, 255, 0.427);
+
+}
+
+h5 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 40px;
+    color: rgb(97, 29, 29);
+}
+
+.app-container {
+    padding: 20px;
+    background-color: brown;
+    box-shadow: 10px 5px 100px black
+}
+
+#add-train {
+    background-color: black;
+    color: 
 }
