@@ -23,8 +23,6 @@ $(document).ready(function () {
     var destination = "";
     var firstTrainTime = "";
     var frequency = "";
-    var nextArrival = "";
-    var minutesAway = "";
 
     // FUNTIONS
     // ==============================================================
@@ -36,10 +34,12 @@ $(document).ready(function () {
         $("#frequency-input").val("");
     }
 
-    // Timer to refresh page to show updated train times
-    setTimeout(function () {
-        location.reload();
-    }, 30000); // 3000 milliseconds means 3 seconds.
+    // function timer() {
+        // Timer to refresh page to show updated train times
+        setTimeout(function () {
+            location.reload();
+        }, 30000); // 30000 milliseconds means 30 seconds.
+    // };
 
     // METHODS
     // ==============================================================
@@ -89,7 +89,7 @@ $(document).ready(function () {
         // Append new row to the tbody
         $("tbody").append(tRow);
 
-        if (minutesTillTrain === 1 ) {
+        if (minutesTillTrain === 1) {
             alert(trainName + " is " + minutesTillTrain + " minute away! Please prepare your belongings, and enjoy " + destination + "! Safe travels!");
         }
 
@@ -165,6 +165,8 @@ $(document).ready(function () {
     // =====================================================================
     $("#add-gif-button").on("click", function () {
 
+        $(".gif-display").empty();
+
         event.preventDefault();
 
         // Pull value from input and save it to gifInput variable
@@ -180,11 +182,9 @@ $(document).ready(function () {
             url: queryURLBase,
             method: "GET"
         }).then(function (response) {
-            console.log("Response:" + JSON.stringify(response));
-
+            console.log(response)
             // De-reference data in response by storing to variable "results"
             var results = response.data;
-            console.log("Results: " + JSON.stringify(results));
 
             // FOR LOOP ADDING GIFS TO PAGE
             for (var i = 0; i < results.length; i++) {
@@ -210,7 +210,6 @@ $(document).ready(function () {
                 $gifIMG.addClass("gif");
                 // Append div with giphy and paragraph text
                 $gifDiv.append($gifIMG);
-                $p.append($favorite);
                 $gifDiv.append($p);
                 $(".gif-display").append($gifDiv);
             };

@@ -19,7 +19,7 @@ input {
 .gif-container {
     text-align: center;
     margin-top: 30px;
-    background-color: rgba(0, 0, 0, 0.187);
+    background-color: rgba(0, 0, 0, 0.386);
     padding: 20px;
 }
 
@@ -51,4 +51,9 @@ h5 {
 #add-train {
     background-color: black;
     color: 
+}
+
+.gif {
+    margin: 10px;
+    box-shadow: 10px 5px 100px white;
 }
