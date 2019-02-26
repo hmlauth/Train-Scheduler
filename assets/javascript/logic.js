@@ -36,9 +36,9 @@ $(document).ready(function () {
 
     // function timer() {
         // Timer to refresh page to show updated train times
-        setTimeout(function () {
-            location.reload();
-        }, 30000); // 30000 milliseconds means 30 seconds.
+        // setTimeout(function () {
+        //     location.reload();
+        // }, 30000); // 30000 milliseconds means 30 seconds.
     // };
 
     // METHODS
@@ -95,6 +95,25 @@ $(document).ready(function () {
 
     });
 
+function addTrain(trainName, destination, firstTrainTime, frequency) {
+    // Instead of set(), use push() which adds data to the root
+    database.ref().push({
+        trainName: trainName,
+        destination: destination,
+        firstTrainTime: firstTrainTime,
+        frequency: frequency
+        // Next Arrival and Minutes Away will be calculated after we pull the snapshot of the added information and then display in on the page. 
+    }, function (error) {
+        if (error) {
+            // The write failed...
+        } else {
+            // Data saved successfully!
+        }
+    });
+
+    clearInput();
+};
+
     $("#add-train").on("click", function (event) {
 
         event.preventDefault();
@@ -108,24 +127,15 @@ $(document).ready(function () {
         console.log(firstTrainTime);
         console.log(frequency);
 
-        // Instead of set(), use push() which adds data to the root
-        database.ref().push({
-            trainName: trainName,
-            destination: destination,
-            firstTrainTime: firstTrainTime,
-            frequency: frequency
-            // Next Arrival and Minutes Away will be calculated after we pull the snapshot of the added information and then display in on the page. 
-        }, function (error) {
-            if (error) {
-                // The write failed...
-            } else {
-                // Data saved successfully!
-            }
-        });
-
-        clearInput();
+        if (trainName && destination && firstTrainTime && frequency) {
+            addTrain(trainName, destination, firstTrainTime, frequency);
+        } else {
+            alert("Please complete entire form");
+        };
 
     });
+
+    // if (isNaN(value) === false && parseInt(value) > 0 && parseInt(value) <= 10)
 
     // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
     // GIPHY API LOGIC
