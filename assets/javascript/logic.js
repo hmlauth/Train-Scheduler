@@ -2,6 +2,7 @@
 // use diff moment.js
 // add, subtract, year
 $(document).ready(function () {
+
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyDKFkzSHbWlIyDiQ66WgYzmx-KnCosZAsE",
@@ -52,8 +53,8 @@ $(document).ready(function () {
     database.ref().on("child_added", function (snapshot) {
         // snapshot.val() grabs "thing" that was saved to database; just snapshot will provide metadata about the "thing" we care about.
         // snapshot gives things in the order that they were added to the database unless otherwise specified. 
-        trainName = snapshot.val().trainName;
-        destination = snapshot.val().destination;
+        trainName = snapshot.val().trainName.toLowerCase().split(' ').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
+        destination = snapshot.val().destination.toLowerCase().split(' ').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
         firstTrainTime = snapshot.val().firstTrainTime;
         frequency = snapshot.val().frequency;
 
@@ -112,6 +113,7 @@ function addTrain(trainName, destination, firstTrainTime, frequency) {
     });
 
     clearInput();
+
 };
 
     $("#add-train").on("click", function (event) {
@@ -135,10 +137,10 @@ function addTrain(trainName, destination, firstTrainTime, frequency) {
 
     });
 
-    // if (isNaN(value) === false && parseInt(value) > 0 && parseInt(value) <= 10)
+// if (isNaN(value) === false && parseInt(value) > 0 && parseInt(value) <= 10)
 
-    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
-    // GIPHY API LOGIC
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
+// GIPHY API LOGIC
 
     // QUERY
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=nNJaO7RRux2S8GgjGHR8eQiVlVx79M9r&limit=10";
