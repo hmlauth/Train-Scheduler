@@ -65,7 +65,7 @@ $(document).ready(function () {
         // Once we have the difference we need to see how many trains have come and gone and what is left over to then use that number to predict the next arrival. For example, if a train comes every 5 minutes starting at 10:00 and it's 10:11, then we know two trains have come with 1 minute remainder. Knowing the remainer will then give us a point of reference to know in how many minutes the next train will come through simple subtraction of the frequency minus the remainder.
         var tRemainder = diffTime % frequency;
         var minutesTillTrain = frequency - tRemainder;
-        var nextTrain = moment(moment().add(minutesTillTrain, "minutes")).format("hh:mm");
+        var nextTrain = moment(moment().add(minutesTillTrain, "minutes")).format("hh:mm a");
 
         // Create new table elements
         tRow = $("<tr>");
