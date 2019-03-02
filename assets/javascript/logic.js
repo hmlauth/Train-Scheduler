@@ -3,6 +3,17 @@
 // add, subtract, year
 $(document).ready(function () {
 
+    // $('#myModal').on('shown.bs.modal', function () {
+    //     $('#myInput').trigger('focus')
+    // });
+    
+    var options = {
+        'show': true
+      }
+
+    $('#exampleModal').modal(options)
+    console.log(options);
+
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyDKFkzSHbWlIyDiQ66WgYzmx-KnCosZAsE",
@@ -36,10 +47,10 @@ $(document).ready(function () {
     }
 
     // function timer() {
-        // Timer to refresh page to show updated train times
-        // setTimeout(function () {
-        //     location.reload();
-        // }, 30000); // 30000 milliseconds means 30 seconds.
+    // Timer to refresh page to show updated train times
+    // setTimeout(function () {
+    //     location.reload();
+    // }, 30000); // 30000 milliseconds means 30 seconds.
     // };
 
     // METHODS
@@ -91,30 +102,30 @@ $(document).ready(function () {
         $("tbody").append(tRow);
 
         if (minutesTillTrain === 1) {
-            alert(trainName + " is " + minutesTillTrain + " minute away! Please prepare your belongings, and enjoy " + destination + "! Safe travels!");
+            // alert(trainName + " is " + minutesTillTrain + " minute away! Please prepare your belongings, and enjoy " + destination + "! Safe travels!");
         }
 
     });
 
-function addTrain(trainName, destination, firstTrainTime, frequency) {
-    // Instead of set(), use push() which adds data to the root
-    database.ref().push({
-        trainName: trainName,
-        destination: destination,
-        firstTrainTime: firstTrainTime,
-        frequency: frequency
-        // Next Arrival and Minutes Away will be calculated after we pull the snapshot of the added information and then display in on the page. 
-    }, function (error) {
-        if (error) {
-            // The write failed...
-        } else {
-            // Data saved successfully!
-        }
-    });
+    function addTrain(trainName, destination, firstTrainTime, frequency) {
+        // Instead of set(), use push() which adds data to the root
+        database.ref().push({
+            trainName: trainName,
+            destination: destination,
+            firstTrainTime: firstTrainTime,
+            frequency: frequency
+            // Next Arrival and Minutes Away will be calculated after we pull the snapshot of the added information and then display in on the page. 
+        }, function (error) {
+            if (error) {
+                // The write failed...
+            } else {
+                // Data saved successfully!
+            }
+        });
 
-    clearInput();
+        clearInput();
 
-};
+    };
 
     $("#add-train").on("click", function (event) {
 
@@ -137,10 +148,8 @@ function addTrain(trainName, destination, firstTrainTime, frequency) {
 
     });
 
-// if (isNaN(value) === false && parseInt(value) > 0 && parseInt(value) <= 10)
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
-// GIPHY API LOGIC
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
+    // GIPHY API LOGIC
 
     // QUERY
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=nNJaO7RRux2S8GgjGHR8eQiVlVx79M9r&limit=10";
