@@ -1,6 +1,3 @@
-// alert("I am working");
-// use diff moment.js
-// add, subtract, year
 $(document).ready(function () {
 
     // Initialize Firebase
@@ -35,12 +32,6 @@ $(document).ready(function () {
         $("#frequency-input").val("");
     }
 
-    // function timer() {
-    // Timer to refresh page to show updated train times
-    // setTimeout(function () {
-    //     location.reload();
-    // }, 30000); // 30000 milliseconds means 30 seconds.
-    // };
 
     // METHODS
     // ==============================================================
@@ -96,7 +87,7 @@ $(document).ready(function () {
               }
         
             $('#exampleModal').modal(options)
-            $('.modal-body').html("<strong>" + trainName + "</strong> is <em>" + minutesTillTrain + " minute away</em>! <br><br>Please prepare your belongings, and enjoy " + destination + "!<br><br>");
+            $('.modal-body').html("<strong>" + trainName + "</strong> is <em>" + minutesTillTrain + " minute away</em>! Please prepare your belongings, and enjoy " + destination + ".<br><br>");
         }
 
     });
