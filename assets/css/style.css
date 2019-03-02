@@ -8,6 +8,15 @@ body {
     color: rgb(97, 29, 29);
 }
 
+.modal-body {
+    text-align: center;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
 input {
     font-style: italic;
 }

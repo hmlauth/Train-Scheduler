@@ -96,7 +96,7 @@ $(document).ready(function () {
               }
         
             $('#exampleModal').modal(options)
-            $('.modal-body').text(trainName + " is " + minutesTillTrain + " minute away! Please prepare your belongings, and enjoy " + destination + "! Safe travels!");
+            $('.modal-body').html("<strong>" + trainName + "</strong> is <em>" + minutesTillTrain + " minute away</em>! <br><br>Please prepare your belongings, and enjoy " + destination + "!<br><br>");
         }
 
     });
