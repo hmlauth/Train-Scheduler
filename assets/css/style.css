@@ -12,10 +12,10 @@ body {
     text-align: center;
 }
 
-.modal-footer {
+/* .modal-footer {
     display: flex;
     justify-content: center;
-}
+} */
 
 input {
     font-style: italic;

@@ -137,7 +137,15 @@ $(document).ready(function () {
         if (trainName && destination && firstTrainTime && frequency) {
             addTrain(trainName, destination, firstTrainTime, frequency);
         } else {
-            alert("Please complete entire form");
+            var options = {
+                'show': true
+              }
+        
+            $('#exampleModal').modal(options);
+
+            $('.modal-header').text("Please complete entire form");
+            $('.modal-body').hide();
+            $('#modal-button').text("Close");
         };
 
     });
