@@ -3,17 +3,6 @@
 // add, subtract, year
 $(document).ready(function () {
 
-    // $('#myModal').on('shown.bs.modal', function () {
-    //     $('#myInput').trigger('focus')
-    // });
-    
-    var options = {
-        'show': true
-      }
-
-    $('#exampleModal').modal(options)
-    console.log(options);
-
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyDKFkzSHbWlIyDiQ66WgYzmx-KnCosZAsE",
@@ -102,7 +91,12 @@ $(document).ready(function () {
         $("tbody").append(tRow);
 
         if (minutesTillTrain === 1) {
-            // alert(trainName + " is " + minutesTillTrain + " minute away! Please prepare your belongings, and enjoy " + destination + "! Safe travels!");
+            var options = {
+                'show': true
+              }
+        
+            $('#exampleModal').modal(options)
+            $('.modal-body').text(trainName + " is " + minutesTillTrain + " minute away! Please prepare your belongings, and enjoy " + destination + "! Safe travels!");
         }
 
     });
